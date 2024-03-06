@@ -8,6 +8,13 @@ pipeline {
           git branch: 'main', url: 'https://github.com/WarrenBarton/lbg-vat-calculator.git'
         }
     }
+    stage('Test') {
+        steps {
+          // Run the automated tests
+          npm test
+        }
+    }
+
     stage('SonarQube Analysis') {
       environment {
         scannerHome = tool 'sonarqube'
